@@ -11,8 +11,8 @@ int main() {
     steps += x / 3; 
     x %= 3;
     steps += x / 2; 
-    x %= 2;
-    steps += x;  
+    x %= 2;steps += x;  
     cout << steps << endl;  
     return 0;
+    //let him cook;
 }
