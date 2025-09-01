@@ -4,6 +4,7 @@
 using namespace std;
 int main()
 {
+//long long
     int n , t;
     cin >> n >> t;
     vector<int>ar(n);
