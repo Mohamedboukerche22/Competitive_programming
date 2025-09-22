@@ -36,30 +36,46 @@ int main() {
         }*/
         vector<pair<char,int>> chars;
         int j = 0; 
-        for (int i = 0; i < (int)str.size(); i++) {
-          if (str[i] == ' ' || str[i] == ',') continue; 
+        /*for (int i = 0; i < (int)str.size(); i++) {
+           if ('A' <= chars[i].first && chars[i].first <= 'Z') { 
+                if (j < n) {
+                    chars.push_back({chars[i].first, fibo[j]});
+                    j++;
+                } 
+            }
           if (j < (int)fibo.size()) {
          chars.push_back({str[i], fibo[j]}); j++;
             }
-         }
+         }*/
+
+        for (char c : str) {
+            if ('A' <= c && c <= 'Z') { 
+                if (j < n) chars.pb({c, fibo[j]}); j++;
+            }
+        }
          //sort(chars.begin(), chars.end());
     sort(chars.begin(), chars.end(), [](auto &a, auto &b){
     return a.second < b.second;
     });
-    vector<char>ans;
+    ll mx = *max_element(all(fibo));
+    
+    ll mxdp = find(all(dp), mx) - dp.begin();
+    vector<char>ans(mxdp+2,' ');
     int g = 0;
-    for(int i = 0 ; i <= n+1;i++){
+    for(int i = 0 ; i <= mxdp && g<sz(chars);i++){
         if((chars[g].second) == dp[i]){
-            ans.pb(chars[g].first);
-            g++;
-        }else{
-            ans.pb(' ');
-        }
+            //ans.pb(chars[g].first);
+            ans[i] = chars[g].first;g++;
+        }//else{
+           // ans.pb(' ');
+       // }
     }
-    for(char i :ans){
+    /*for(char i :ans){
         cout <<i;
-    }
-    cout <<"\n";
+    }*/
+        string out(ans.begin(), ans.end());
+        while (!out.empty() && out.back() == ' ') out.pop_back();
+        cout << out << "\n";
 
     /*for(int i = 0 ; i< chars.size();i++){
         cout <<chars[i].first<<" : "<<chars[i].second<<endl;
