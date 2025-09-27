@@ -1,24 +1,36 @@
 //https://cses.fi/problemset/task/1633/
 //dp prb
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int const MOD = 1e9 + 7;
 
-int main(){
-    int n;
-    cin >> n;
-    vector<int>dp(n + 1 ,0);
+#define fastAOI ios::sync_with_stdio(false); cin.tie(nullptr);
+#define ll long long
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define sz(x) (int)(x).size()
+const int N = 1e6;
+const int MOD = 1e9 +7;
+
+int main() {
+    fastAOI;
+    int t = 1;
+    // cin >> t;
+    while (t--) {
+       ll n;
+       cin >> n;
+    vector<int>dis = {1,2,3,4,5,6};
+    vector<int>dp(n+5);
     dp[0] = 1;
-    for(long long x = 1;x <= n; ++x){
-        long long ways = 0;
-        for(long long i = 0 ; i <= 6 ;++i){
-           if(x - i >= 0){
-            ways += dp[x - i];
-           }
+    for(int x = 1 ; x<= n ;x++)
+    {
+        for(int c :dis){
+            if(x-c>=0){
+                dp[x] += dp[x-c] ; 
+                dp[x] %= MOD;
+            }
         }
-        dp[x] = ways % MOD;
     }
-    cout << dp[n];
-    
-    
+       cout <<dp[n]<<"\n";
+    }
+    return 0;
 }
