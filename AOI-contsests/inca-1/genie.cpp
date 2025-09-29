@@ -11,7 +11,7 @@ int cardv(string card){
         return 10;
     } 
     //return string_to_int(card); 
-    //it does not existe lol 
+    //it does not existe lol o
     return stoi(card);
 }
 
