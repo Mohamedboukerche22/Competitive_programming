@@ -17,6 +17,7 @@ int main(){
       }else if (i.first > i.second){
          count += i.second;
       }
+
    }
    cout << count << endl;
 
