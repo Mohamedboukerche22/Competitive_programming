@@ -10,8 +10,6 @@ int cardv(string card){
     if(card == "K" || card == "Q" || card == "J"){
         return 10;
     } 
-    //return string_to_int(card); 
-    //it does not existe lol o
     return stoi(card);
 }
 
