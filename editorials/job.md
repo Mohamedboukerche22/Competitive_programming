@@ -8,6 +8,7 @@
 - [Algerian arabic](statements/job.ar_DZ.pdf)
 
 ## Solution
+
 - we are given two integers `N`  and `c` ,  consider permutations of size `N` and  the **incorrectness** of a permutation is the number of inversions: pairs `(i, j)` with `i < j` and `A[i] > A[j]`.
 - We should count how many permutations of length `N` have exactly `C` inversions ,modulo  `1e9+7`
 ## The Idea 
