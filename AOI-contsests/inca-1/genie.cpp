@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+const int N = 1e6;
 const int MOD = 1e9 + 7;
 #define ll long long
 #define fastAOI ios::sync_with_stdio(false); cin.tie(nullptr);
